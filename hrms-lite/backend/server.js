@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
 const { PrismaClient } = require("@prisma/client");
-require("dotenv").config();
+
+
 
 const app = express();
 const prisma = new PrismaClient();
@@ -169,8 +171,6 @@ app.get("/api/dashboard", async (req, res) => {
 });
 
 
-import cors from "cors";
-
 app.use(
   cors({
     origin: [
@@ -180,3 +180,6 @@ app.use(
     credentials: true,
   })
 );
+
+
+module.exports = app;
