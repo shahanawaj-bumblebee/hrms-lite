@@ -3,12 +3,24 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const { PrismaClient } = require("@prisma/client");
 
-
+dotenv.config();
 
 const app = express();
 const prisma = new PrismaClient();
 
-app.use(cors());
+import cors from "cors";
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://hrms-lite-gamma-three.vercel.app",
+      "https://hrms-lite-7jimnpu0k-mohammad-shahanawajs-projects.vercel.app"
+    ],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
