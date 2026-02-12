@@ -167,3 +167,16 @@ app.get("/api/dashboard", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
+
+import cors from "cors";
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://hrms-lite-gamma-three.vercel.app/"
+    ],
+    credentials: true,
+  })
+);
